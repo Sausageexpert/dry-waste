@@ -3,6 +3,7 @@
 
 var garbage, canvas;
 var engine, world;
+var ground;
 
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -19,6 +20,7 @@ createCanvas(800, 700);
 
 	//Create the Bodies Here.
 	garbage = new Waste(300, 300, 20, 20);
+	ground = new Ground(400, 350, 800, 10);
 	
 	Engine.run(engine);
   
@@ -27,8 +29,8 @@ createCanvas(800, 700);
 function draw() {
   background(0);
 
-
   garbage.display();
+  ground.display();
   drawSprites();
 
  
