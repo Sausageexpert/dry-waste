@@ -1,3 +1,4 @@
+  
 class Ground {
     constructor(x, y, width, height){
         var options ={
@@ -15,8 +16,7 @@ class Ground {
         var where = this.body.position;
     translate(where.x, where.y);
 
-        stroke("red");
-        fill("blue");
+        fill("white");
         rectMode(CENTER);
 
         rect(0, 0, this.width, this.height);
