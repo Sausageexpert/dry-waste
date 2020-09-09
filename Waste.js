@@ -24,4 +24,10 @@ class Waste{
         rect(0, 0, this.width, this.height);
         pop();
     }
+
+    fly(){
+        if(keyCode === UP_ARROW){
+            Matter.Body.applyForce(this.body, this.body.position, {x:85,y:-85});
+        }
+    }
 };
