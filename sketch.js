@@ -39,7 +39,7 @@ function draw() {
   bin2.display();
   bin3.display();
 
- 
+    garbage.fly();
   drawSprites();
 
  
