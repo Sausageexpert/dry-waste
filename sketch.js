@@ -5,6 +5,7 @@ var garbage, canvas;
 var engine, world;
 var ground;
 var bin1, bin2, bin3;
+var rightEdge, leftEdge;
 
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -39,10 +40,39 @@ function draw() {
   bin2.display();
   bin3.display();
 
-    garbage.fly();
+  if(garbage.y > bin2.y - bin2.height/2){
+	  garbage1.velocityY = 0;
+  }
+
+  if (hasCollided(garbage, bin2)){
+	  garbage.velocityY = 0;
+	  garbage.velocityX = 0;
+  }
+
   drawSprites();
 
  
+}
+
+function keyPressed() {
+	if (keyCode === UP_ARROW) {
+
+	  Matter.Body.applyForce(garbage.body,garbage.body.position,{x:18,y:-25});
+
+  
+	}
+}
+
+function hasCollided(garbage, bin2){
+	rightEdge = garbage.y + garbage.width/2;
+	leftEdge = bin2.y - bin2.height/2;
+	//leftEdge = wall.x ;
+  
+	  if (rightEdge>=leftEdge)
+	  {
+		  return true;
+	  }
+	  return false;
 }
 
 
